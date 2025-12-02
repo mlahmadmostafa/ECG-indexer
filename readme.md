@@ -31,12 +31,7 @@ Docker,Container platform,/usr/bin/docker,https://docker.com,Must run as root,de
 ```
 
 ### 3. Generate the Catalog
-Open your terminal or command prompt in the project folder and run:
-
-```bash
-python build_catalog.py
-```
-
+Run build_index.exe
 You should see the message:
 > ✅ Success! Generated 'index.html' with data from 'tools.csv'.
 
@@ -56,15 +51,12 @@ Open the newly created **`index.html`** file in Chrome, Edge, or Firefox.
 | **notes** | specific warnings, versions, or tips (highlighted in yellow). |
 | **keywords** | Comma-separated tags for better search (e.g., `git, vcs, source`). |
 
-## 🎨 Customization
-
-To change the look and feel (colors, fonts, or layout), open `build_catalog.py` and modify the **CSS** inside the `html_template` variable.
 
 ## ❓ Troubleshooting
 
 **"No tools found matching your search"**
 *   Check if `tools.csv` exists in the same folder.
-*   Make sure you re-ran `python build_catalog.py` after saving your CSV changes.
+*   Make sure you re-ran build_index.exe after saving your CSV changes.
 
 **Encoding Errors**
 *   Ensure your CSV is saved with **UTF-8** encoding. Excel sometimes saves as CSV (Macintosh) or ANSI. Using VS Code or Notepad++ to save the CSV ensures correct encoding.
