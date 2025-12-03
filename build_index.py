@@ -15,6 +15,7 @@ def create_catalog():
             csv_content = f.read()
             # Escape backticks to prevent breaking the JS template literal
             csv_content = csv_content.replace('`', '\\`')
+            csv_content = csv_content.replace('\\', '/')
     except Exception as e:
         print(f"❌ Error reading CSV: {e}")
         return
@@ -85,7 +86,7 @@ def create_catalog():
             margin-bottom: 15px; word-break: break-all; color: #333;
         }}
         .tool-tutorial {{ margin-bottom: 15px; color: #666; }}
-        .tool-notes {{
+        .tool-setup {{
             margin-bottom: 15px; padding: 10px; background: #fff8e1;
             border-left: 4px solid #ffc107; border-radius: 4px; font-size: 0.95em;
         }}
@@ -156,7 +157,7 @@ def create_catalog():
                     (tool['tool description'] || '').toLowerCase().includes(searchTerm) ||
                     (tool['tool path'] || '').toLowerCase().includes(searchTerm) ||
                     (tool['tutorial'] || '').toLowerCase().includes(searchTerm) ||
-                    (tool['notes'] || '').toLowerCase().includes(searchTerm) ||
+                    (tool['setup'] || '').toLowerCase().includes(searchTerm) ||
                     (tool['keywords'] || '').toLowerCase().includes(searchTerm)
                 );
             }});
@@ -196,10 +197,10 @@ def create_catalog():
                             </div>
                         ` : ''}}
                         
-                        ${{tool['notes'] ? `
-                            <div class="tool-notes">
-                                <div class="label">Notes</div>
-                                ${{tool['notes']}}
+                        ${{tool['setup'] ? `
+                            <div class="tool-setup">
+                                <div class="label">setup</div>
+                                ${{tool['setup']}}
                             </div>
                         ` : ''}}
                         
